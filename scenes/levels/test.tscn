@@ -11,6 +11,12 @@ size = Vector2(32, 32)
 [node name="Player" parent="." unique_id=2036891840 instance=ExtResource("1_8153q")]
 position = Vector2(378, 277)
 
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1385869598]
+zoom = Vector2(1.2, 1.2)
+process_callback = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+
 [node name="Floor" type="StaticBody2D" parent="." unique_id=1760372110]
 position = Vector2(598, 460)
 scale = Vector2(26.960003, 1)

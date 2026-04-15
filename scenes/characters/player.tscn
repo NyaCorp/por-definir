@@ -19,5 +19,9 @@ shape = SubResource("RectangleShape2D_rp718")
 [node name="camera2d" type="Camera2D" parent="." unique_id=1418491829]
 offset = Vector2(0, -170)
 process_callback = 0
+limit_left = -653
+limit_right = 2920
+limit_bottom = 611
+limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0

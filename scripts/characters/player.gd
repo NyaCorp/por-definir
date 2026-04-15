@@ -18,10 +18,10 @@ func player_movement(delta: float):
 		velocity += get_gravity() * delta
 
 	# Handle jump and double jump
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		isDoubleJump = true
-	elif Input.is_action_just_pressed("ui_accept") and !is_on_floor() and isDoubleJump:
+	elif Input.is_action_just_pressed("jump") and !is_on_floor() and isDoubleJump:
 		velocity.y = JUMP_VELOCITY
 		isDoubleJump = false
 

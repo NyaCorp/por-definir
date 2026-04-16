@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b77y4lbwhjyqe" path="res://scenes/characters/player.tscn" id="2_7k8c1"]
 [ext_resource type="Texture2D" uid="uid://chye47hcvg8lu" path="res://assets/sprites/checkorange.png" id="3_lfyvx"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7k8c1"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lfyvx"]
 texture = ExtResource("1_tsias")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -17,7 +17,7 @@ texture = ExtResource("1_tsias")
 
 [sub_resource type="TileSet" id="TileSet_lfyvx"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_7k8c1")
+sources/0 = SubResource("TileSetAtlasSource_lfyvx")
 
 [node name="World" type="Node2D" unique_id=844796057]
 
@@ -27,6 +27,16 @@ tile_set = SubResource("TileSet_lfyvx")
 
 [node name="Player" parent="." unique_id=2036891840 instance=ExtResource("2_7k8c1")]
 position = Vector2(172, 117)
+
+[node name="camera2d2" type="Camera2D" parent="Player" unique_id=1168571513]
+offset = Vector2(0, -170)
+process_callback = 0
+limit_left = -653
+limit_right = 2920
+limit_bottom = 611
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
 
 [node name="bunker" type="Sprite2D" parent="." unique_id=1833958602]
 position = Vector2(1499.5, 55.249966)

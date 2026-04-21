@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://pql03f6tbitq"]
+
+[ext_resource type="Script" uid="uid://bytwss2v78u1d" path="res://scripts/ui/menu.gd" id="1_wedc3"]
+[ext_resource type="Texture2D" uid="uid://c0cfu5arxn6a" path="res://assets/sprites/player/Fufu_corriendo.png" id="2_wedc3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8vqvp"]
+atlas = ExtResource("2_wedc3")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7w7rl"]
+atlas = ExtResource("2_wedc3")
+region = Rect2(32, 0, 32, 32)
+
+[node name="Menu" type="Control" unique_id=1210388882]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wedc3")
+
+[node name="Label" type="Label" parent="." unique_id=1174066734]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.24000001
+anchor_right = 0.76000005
+offset_left = 0.019989014
+offset_top = 80.0
+offset_right = -0.020080566
+offset_bottom = 190.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 80
+text = "Fufu Adventure"
+horizontal_alignment = 1
+
+[node name="PlayBtn" type="Button" parent="." unique_id=331284964]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.425
+anchor_top = 0.5
+anchor_right = 0.57500005
+anchor_bottom = 0.5
+offset_left = 0.3999939
+offset_top = -21.0
+offset_right = -0.4000244
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "PLAY"
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1919993351]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.13800001
+anchor_top = 0.46500003
+anchor_right = 0.34300002
+anchor_bottom = 0.82900006
+offset_left = 0.023986816
+offset_top = -0.32000732
+offset_right = -0.13601685
+offset_bottom = -0.1920166
+texture = SubResource("AtlasTexture_8vqvp")
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=661417019]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.62600005
+anchor_top = 0.46100003
+anchor_right = 0.83100003
+anchor_bottom = 0.82600003
+offset_left = -0.15203857
+offset_top = 0.27197266
+offset_right = -0.31201172
+offset_bottom = -0.24804688
+texture = SubResource("AtlasTexture_7w7rl")
+
+[connection signal="pressed" from="PlayBtn" to="." method="_on_play_btn_pressed"]

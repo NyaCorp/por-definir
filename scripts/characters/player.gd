@@ -53,11 +53,15 @@ func camera_movement():
 		camera.drag_vertical_offset = 0
 
 func collide_with_enemy(enemy: CharacterBody2D):
-	animation2.play("enemy_col")
-	
 	set_collision_layer_value(2, false)
 	area_col.set_collision_layer_value(2, false)
 	enemy.set_collision_layer_value(3, false)
+	
+	animation2.play("enemy_col")
+	
+	if Global.player_lives > 0:
+		Global.player_lives -= 1
+		print("Al jugador le quedan " + str(Global.player_lives) + " vidas")
 	
 	var timer = get_tree().create_timer(2)
 	timer.timeout.connect(func(): 

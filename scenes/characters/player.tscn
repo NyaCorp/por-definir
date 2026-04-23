@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cq5m75uqb8854" path="res://assets/sprites/player/Fufu_pose_descanso.png" id="2_yewv4"]
 [ext_resource type="Texture2D" uid="uid://c0cfu5arxn6a" path="res://assets/sprites/player/Fufu_corriendo.png" id="3_76oj4"]
 [ext_resource type="Texture2D" uid="uid://mmevvbc8vkip" path="res://assets/sprites/player/Fufu_brincando.png" id="3_dyp2m"]
+[ext_resource type="Texture2D" uid="uid://k3t6ye1ff7v3" path="res://assets/sprites/player/Fufu_disparando.png" id="5_atpat"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rp718"]
 size = Vector2(10, 18)
@@ -217,12 +218,52 @@ tracks/3/keys = {
 "values": [0, 1, 2, 3, 0]
 }
 
+[sub_resource type="Animation" id="Animation_eojnx"]
+resource_name = "shoot"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("spr:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_atpat")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("spr:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("spr:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_76oj4"]
 _data = {
 &"RESET": SubResource("Animation_76oj4"),
 &"idle": SubResource("Animation_yewv4"),
 &"jump": SubResource("Animation_atpat"),
-&"run": SubResource("Animation_dyp2m")
+&"run": SubResource("Animation_dyp2m"),
+&"shoot": SubResource("Animation_eojnx")
 }
 
 [sub_resource type="Animation" id="Animation_6eyoc"]
@@ -296,5 +337,12 @@ collision_mask = 5
 [node name="col" type="CollisionShape2D" parent="area_col" unique_id=1100710322]
 position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_dyp2m")
+
+[node name="BulletPosition" type="Marker2D" parent="." unique_id=1267350107]
+position = Vector2(8, 3)
+
+[node name="BulletTimer" type="Timer" parent="." unique_id=952751465]
+wait_time = 0.4
+one_shot = true
 
 [connection signal="body_entered" from="area_col" to="." method="_on_area_col_body_entered"]

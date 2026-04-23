@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+@onready var bullet_position: Marker2D = $BulletPosition
+@onready var bullet_timer: Timer = $BulletTimer
+
 @onready var animation2: AnimationPlayer = $animation2
 @onready var animation: AnimationPlayer = $animation
 @onready var area_col: Area2D = $area_col
@@ -9,6 +12,8 @@ extends CharacterBody2D
 const JUMP_VELOCITY = -280.0
 const SPEED = 200.0
 
+var bullet_scene = preload("res://scenes/bullet.tscn")
+var isShooting = false
 var isDoubleJump = true
 
 func _physics_process(delta: float) -> void:
@@ -28,17 +33,40 @@ func player_movement(delta: float):
 	elif Input.is_action_just_pressed("jump") and !is_on_floor() and isDoubleJump:
 		velocity.y = JUMP_VELOCITY - 11
 		isDoubleJump = false
-
+	
+	# Handle shoot
+	if Input.is_action_pressed("shoot") and bullet_timer.is_stopped():
+		shoot()
+	
+	# Animations when not shooting
+	if not isShooting:
+		if velocity.x != 0:
+			animation.play("run")
+		else:
+			animation.play("idle")
+	
 	# Handle horizontal movement
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction:
 		velocity.x = direction * SPEED
 		sprite.flip_h = direction < 0
-		
-		animation.play("run")
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-		animation.play("idle")
+
+# Handle shoot
+func shoot():
+	isShooting = true
+	animation.play("shoot")
+	
+	var bullet = bullet_scene.instantiate()
+	bullet.global_position = bullet_position.global_position
+	bullet.global_rotation = bullet_position.global_rotation
+	
+	get_tree().root.add_child(bullet)
+	bullet_timer.start()
+	
+	await bullet_timer.timeout
+	isShooting = false
 
 # Control the vertical movement of the camera
 func camera_movement():

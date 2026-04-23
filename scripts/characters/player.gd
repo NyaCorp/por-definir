@@ -15,6 +15,7 @@ const SPEED = 200.0
 var bullet_scene = preload("res://scenes/bullet.tscn")
 var isShooting = false
 var isDoubleJump = true
+var canShoot = true
 
 func _physics_process(delta: float) -> void:
 	player_movement(delta)
@@ -35,7 +36,7 @@ func player_movement(delta: float):
 		isDoubleJump = false
 	
 	# Handle shoot
-	if Input.is_action_pressed("shoot") and bullet_timer.is_stopped():
+	if Input.is_action_pressed("shoot") and bullet_timer.is_stopped() and canShoot:
 		shoot()
 	
 	# Animations when not shooting
@@ -89,6 +90,7 @@ func camera_movement():
 		camera.drag_vertical_offset = 0
 
 func collide_with_enemy(enemy: CharacterBody2D):
+	canShoot = false
 	set_collision_layer_value(2, false)
 	area_col.set_collision_layer_value(2, false)
 	enemy.set_collision_layer_value(3, false)
@@ -105,6 +107,8 @@ func collide_with_enemy(enemy: CharacterBody2D):
 		area_col.set_collision_layer_value(2, true)
 		enemy.set_collision_layer_value(3, true)
 		$animation2.play("RESET")
+		
+		canShoot = true
 	)
 
 func _on_area_col_body_entered(body: Node2D) -> void:

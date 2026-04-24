@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://ckhbos7swgpya"]
+
+[ext_resource type="Script" uid="uid://cgrc8tprbsp0p" path="res://scripts/ui/gui.gd" id="1_fjuye"]
+
+[node name="GUI" type="CanvasLayer" unique_id=249055991]
+script = ExtResource("1_fjuye")
+
+[node name="ProgressLayer" type="CanvasLayer" parent="." unique_id=322336991]
+
+[node name="Title" type="Label" parent="ProgressLayer" unique_id=1066630546]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -51.5
+offset_top = -50.5
+offset_right = 51.5
+offset_bottom = -27.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Saving data..."
+metadata/_edit_use_anchors_ = true
+
+[node name="Progress" type="Label" parent="ProgressLayer" unique_id=1132165299]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -51.0
+offset_top = -16.0
+offset_right = 52.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "0%"
+horizontal_alignment = 1
+clip_text = true
+metadata/_edit_use_anchors_ = true
+
+[node name="PorgressTimer" type="Timer" parent="ProgressLayer" unique_id=166432097]
+wait_time = 0.2
+
+[node name="DecreaseProgreessTimer" type="Timer" parent="ProgressLayer" unique_id=2001777792]
+
+[node name="PressE_Layer" type="CanvasLayer" parent="." unique_id=859264789]
+visible = false
+
+[node name="E" type="Label" parent="PressE_Layer" unique_id=1907390159]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -51.5
+offset_top = -50.5
+offset_right = 51.5
+offset_bottom = -27.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "E"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[connection signal="timeout" from="ProgressLayer/PorgressTimer" to="." method="_on_porgress_timer_timeout"]
+[connection signal="timeout" from="ProgressLayer/DecreaseProgreessTimer" to="." method="_on_decrease_progreess_timer_timeout"]

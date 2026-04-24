@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://doeqoq8t7notk"]
+
+[ext_resource type="Script" uid="uid://caau8p4o0svnq" path="res://scripts/meta.gd" id="1_keyex"]
+[ext_resource type="Texture2D" uid="uid://chye47hcvg8lu" path="res://assets/sprites/checkorange.png" id="1_omeyu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_omeyu"]
+size = Vector2(112, 95)
+
+[node name="Meta" type="Area2D" unique_id=748752359]
+collision_mask = 3
+script = ExtResource("1_keyex")
+
+[node name="spr" type="Sprite2D" parent="." unique_id=1708542462]
+texture = ExtResource("1_omeyu")
+
+[node name="col" type="CollisionShape2D" parent="." unique_id=712471164]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_omeyu")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

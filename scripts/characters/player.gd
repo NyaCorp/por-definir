@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 @onready var bullet_position: Marker2D = $BulletPosition
 @onready var bullet_timer: Timer = $BulletTimer

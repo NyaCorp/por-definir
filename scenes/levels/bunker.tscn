@@ -140,7 +140,7 @@ tile_map_data = PackedByteArray("AAD//xMAAAAAAAAAAAD//xQAAAAAAAAAAAD//xUAAAAAAAA
 tile_set = SubResource("TileSet_q6r6c")
 
 [node name="Player" parent="." unique_id=2036891840 node_paths=PackedStringArray("camera") instance=ExtResource("2_shgnu")]
-position = Vector2(677, 982)
+position = Vector2(599, 376)
 camera = NodePath("camera2d")
 metadata/_edit_group_ = true
 

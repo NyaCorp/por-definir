@@ -19,6 +19,7 @@ var isDoubleJump = true
 var canShoot = true
 
 func _ready() -> void:
+	Global.game_over.connect(_on_game_over)
 	camera.zoom = Vector2(1.5, 1.5)
 
 func _physics_process(delta: float) -> void:
@@ -103,11 +104,13 @@ func collide_with_enemy(enemy: CharacterBody2D):
 	area_col.set_collision_layer_value(2, false)
 	enemy.set_collision_layer_value(3, false)
 	
-	animation2.play("enemy_col")
 	
-	if Global.player_lives > 0:
-		Global.player_lives -= 1
-		print("Al jugador le quedan " + str(Global.player_lives) + " vidas")
+	if Global.player_lives <= 0:
+		Global.trigger_game_over()
+		return
+	
+	Global.player_lives -= 1
+	animation2.play("enemy_col")
 	
 	var timer = get_tree().create_timer(2)
 	timer.timeout.connect(func():
@@ -118,6 +121,13 @@ func collide_with_enemy(enemy: CharacterBody2D):
 		
 		canShoot = true
 	)
+
+func _on_game_over():
+	rotation_degrees = -90
+	animation.play("idle")
+	animation.play("die")
+	
+	set_physics_process(false)
 
 func _on_area_col_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemy"):

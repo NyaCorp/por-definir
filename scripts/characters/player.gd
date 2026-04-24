@@ -17,6 +17,9 @@ var isShooting = false
 var isDoubleJump = true
 var canShoot = true
 
+func _ready() -> void:
+	camera.zoom = Vector2(1.5, 1.5)
+
 func _physics_process(delta: float) -> void:
 	player_movement(delta)
 	camera_movement()

@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c0cfu5arxn6a" path="res://assets/sprites/player/Fufu_corriendo.png" id="3_76oj4"]
 [ext_resource type="Texture2D" uid="uid://mmevvbc8vkip" path="res://assets/sprites/player/Fufu_brincando.png" id="3_dyp2m"]
 [ext_resource type="Texture2D" uid="uid://k3t6ye1ff7v3" path="res://assets/sprites/player/Fufu_disparando.png" id="5_atpat"]
+[ext_resource type="Texture2D" uid="uid://c1nvnqwm0r4xh" path="res://assets/sprites/player/Fufu_disparando_corriendo.png" id="5_kqtwu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rp718"]
 size = Vector2(10, 18)
@@ -212,10 +213,51 @@ tracks/3/path = NodePath("spr:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6),
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.46666667, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 0]
+}
+
+[sub_resource type="Animation" id="Animation_qgnko"]
+resource_name = "run_shoot"
+length = 0.65
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("spr:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_kqtwu")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("spr:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("spr:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 0, 2, 0]
 }
 
 [sub_resource type="Animation" id="Animation_eojnx"]
@@ -263,6 +305,7 @@ _data = {
 &"idle": SubResource("Animation_yewv4"),
 &"jump": SubResource("Animation_atpat"),
 &"run": SubResource("Animation_dyp2m"),
+&"run_shoot": SubResource("Animation_qgnko"),
 &"shoot": SubResource("Animation_eojnx")
 }
 

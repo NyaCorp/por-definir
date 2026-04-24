@@ -48,6 +48,11 @@ func player_movement(delta: float):
 			animation.play("run")
 		else:
 			animation.play("idle")
+	else:
+		if velocity.x != 0:
+			animation.play("run_shoot")
+		else:
+			animation.play("shoot")
 	
 	# Handle horizontal movement
 	var direction := Input.get_axis("ui_left", "ui_right")
@@ -68,7 +73,6 @@ func player_movement(delta: float):
 # Handle shoot
 func shoot():
 	isShooting = true
-	animation.play("shoot")
 	
 	var bullet = bullet_scene.instantiate()
 	bullet.global_position = bullet_position.global_position

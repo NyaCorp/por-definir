@@ -61,6 +61,9 @@ tracks/3/keys = {
 "values": [0]
 }
 
+[sub_resource type="Animation" id="Animation_7vyk4"]
+resource_name = "die"
+
 [sub_resource type="Animation" id="Animation_yewv4"]
 resource_name = "idle"
 length = 1.2
@@ -302,6 +305,7 @@ tracks/2/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_76oj4"]
 _data = {
 &"RESET": SubResource("Animation_76oj4"),
+&"die": SubResource("Animation_7vyk4"),
 &"idle": SubResource("Animation_yewv4"),
 &"jump": SubResource("Animation_atpat"),
 &"run": SubResource("Animation_dyp2m"),

@@ -23,6 +23,8 @@ Global="*uid://rubemu7svhk0"
 [global_group]
 
 enemy=""
+cables=""
+checkpoint=""
 
 [input]
 

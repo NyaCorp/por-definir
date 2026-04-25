@@ -17,6 +17,7 @@ var bullet_scene = preload("res://scenes/bullet.tscn")
 var isShooting = false
 var isDoubleJump = true
 var canShoot = true
+var currentCheckpoint: Area2D
 
 func _ready() -> void:
 	Global.game_over.connect(_on_game_over)
@@ -130,6 +131,14 @@ func _on_game_over():
 	set_physics_process(false)
 
 func _on_area_col_body_entered(body: Node2D) -> void:
+	if body.is_in_group("cables"):
+		print("regresar al checkpoint")
+		position = currentCheckpoint.position
+
 	if body.is_in_group("enemy"):
 		var enemy = body as CharacterBody2D
 		collide_with_enemy(enemy)
+
+func _on_area_col_area_entered(area: Area2D) -> void:
+	if area.is_in_group("checkpoint"):
+		currentCheckpoint = area

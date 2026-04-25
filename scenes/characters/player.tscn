@@ -441,4 +441,5 @@ position = Vector2(8, 3)
 wait_time = 0.23
 one_shot = true
 
+[connection signal="area_entered" from="area_col" to="." method="_on_area_col_area_entered"]
 [connection signal="body_entered" from="area_col" to="." method="_on_area_col_body_entered"]

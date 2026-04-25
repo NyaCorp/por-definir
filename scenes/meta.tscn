@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://caau8p4o0svnq" path="res://scripts/meta.gd" id="1_keyex"]
 [ext_resource type="Texture2D" uid="uid://chye47hcvg8lu" path="res://assets/sprites/checkorange.png" id="1_omeyu"]
+[ext_resource type="Texture2D" uid="uid://cwedpngugjtm0" path="res://assets/sprites/circle.png" id="3_2e5v5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_omeyu"]
 size = Vector2(112, 95)
@@ -16,6 +17,11 @@ texture = ExtResource("1_omeyu")
 [node name="col" type="CollisionShape2D" parent="." unique_id=712471164]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_omeyu")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1306714940]
+energy = 9.27
+texture = ExtResource("3_2e5v5")
+texture_scale = 11.25
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

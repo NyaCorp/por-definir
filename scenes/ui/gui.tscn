@@ -175,6 +175,7 @@ horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="GameOver" type="CanvasLayer" parent="." unique_id=316961489]
+visible = false
 
 [node name="bg" type="ColorRect" parent="GameOver" unique_id=5619929]
 anchors_preset = 15
@@ -219,6 +220,18 @@ text = "RESTART"
 
 [node name="animation" type="AnimationPlayer" parent="GameOver" unique_id=2048411451]
 libraries/ = SubResource("AnimationLibrary_khrik")
+
+[node name="Background" type="CanvasLayer" parent="." unique_id=28326539]
+layer = -1
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="Background" unique_id=688728120]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.12156863, 0.14901961, 0.21568628, 1)
 
 [connection signal="timeout" from="ProgressLayer/PorgressTimer" to="." method="_on_porgress_timer_timeout"]
 [connection signal="timeout" from="ProgressLayer/DecreaseProgreessTimer" to="." method="_on_decrease_progreess_timer_timeout"]

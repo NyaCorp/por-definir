@@ -4,7 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://bmkwtcpxf02qj" path="res://assets/sprites/ARENA.png" id="2_w2p53"]
 [ext_resource type="Texture2D" uid="uid://da0jqt6455kvj" path="res://assets/sprites/fondo_world.png" id="4_w2p53"]
 [ext_resource type="Texture2D" uid="uid://bk8fminfimib5" path="res://assets/sprites/Edificio2.png" id="5_7xgas"]
+[ext_resource type="Script" uid="uid://fiigs6n30tn0" path="res://scripts/ui/puerta_tower.gd" id="5_dp8al"]
 [ext_resource type="Texture2D" uid="uid://cqbdxaemxluuv" path="res://assets/sprites/Torre_de_control.png" id="5_gy5pc"]
+[ext_resource type="Script" uid="uid://bwf4g35nicen8" path="res://scripts/ui/puerta_bunker.gd" id="6_0lift"]
 [ext_resource type="Texture2D" uid="uid://dhkhs7o1yultq" path="res://assets/sprites/Edificio_1.png" id="6_gy5pc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lfyvx"]
@@ -27,6 +29,9 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_lfyvx")
 sources/1 = SubResource("TileSetAtlasSource_7xgas")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gy5pc"]
+size = Vector2(103.13665, 108.58335)
+
 [node name="World" type="Node2D" unique_id=844796057]
 
 [node name="arena" type="TileMapLayer" parent="." unique_id=13903944]
@@ -42,10 +47,10 @@ camera = NodePath("camera2d")
 offset = Vector2(0, -40)
 zoom = Vector2(2.6, 2.6)
 process_callback = 0
-limit_left = -103
-limit_top = -399
-limit_right = 2422
-limit_bottom = 401
+limit_left = -24
+limit_top = -418
+limit_right = 2501
+limit_bottom = 382
 limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
@@ -66,10 +71,48 @@ position = Vector2(2181, 120)
 scale = Vector2(4.471426, 4.471426)
 texture = ExtResource("5_gy5pc")
 
+[node name="puerta" type="Area2D" parent="TorreDeControl" unique_id=1238597421]
+position = Vector2(-5.591058, 4.6964884)
+scale = Vector2(0.1, 0.1)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("5_dp8al")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TorreDeControl/puerta" unique_id=612956415]
+position = Vector2(-44.201416, 344.05664)
+shape = SubResource("RectangleShape2D_gy5pc")
+
+[node name="Label" type="Label" parent="TorreDeControl/puerta" unique_id=1734429073]
+offset_left = -105.59233
+offset_top = 243.10791
+offset_right = 24.40767
+offset_bottom = 312.1079
+theme_override_font_sizes/font_size = 50
+text = "Enter"
+
 [node name="bunker" type="Sprite2D" parent="." unique_id=83084078]
 position = Vector2(1246, 157)
 scale = Vector2(4.0722656, 4.0722656)
 texture = ExtResource("5_7xgas")
+
+[node name="puerta" type="Area2D" parent="bunker" unique_id=1743888410]
+scale = Vector2(0.1, 0.1)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("6_0lift")
+escena_destino = "uid://cr88bnl1a48x6"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bunker/puerta" unique_id=2113761526]
+position = Vector2(-44.201416, 344.05664)
+shape = SubResource("RectangleShape2D_gy5pc")
+
+[node name="Label" type="Label" parent="bunker/puerta" unique_id=1634319204]
+offset_left = -105.59233
+offset_top = 243.10791
+offset_right = 24.40767
+offset_bottom = 312.1079
+theme_override_font_sizes/font_size = 50
+text = "Enter"
 
 [node name="Node" type="Node" parent="." unique_id=1255257404]
 

@@ -445,9 +445,11 @@ one_shot = true
 
 [node name="ShootSound" type="AudioStreamPlayer" parent="." unique_id=1644454491]
 stream = ExtResource("7_6eyoc")
+volume_db = -20.0
 
 [node name="Explosion" type="AudioStreamPlayer" parent="." unique_id=752527434]
 stream = ExtResource("8_eojnx")
+volume_db = -16.0
 
 [connection signal="area_entered" from="area_col" to="." method="_on_area_col_area_entered"]
 [connection signal="body_entered" from="area_col" to="." method="_on_area_col_body_entered"]

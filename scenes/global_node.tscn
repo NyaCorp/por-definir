@@ -9,9 +9,10 @@ script = ExtResource("1_cmiys")
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=500960325]
 stream = ExtResource("1_xvru0")
-volume_db = -10.0
+volume_db = -30.0
 autoplay = true
 parameters/looping = true
 
 [node name="GameOverSound" type="AudioStreamPlayer" parent="." unique_id=394628016]
 stream = ExtResource("3_yspue")
+volume_db = -30.0

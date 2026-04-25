@@ -11,6 +11,7 @@ signal new_game
 
 var player_lives = 3
 var isSavedData = false
+var spawn_destino: String = ""
 
 func _ready() -> void:
 	game_over.connect(_on_game_over)

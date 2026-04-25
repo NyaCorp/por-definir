@@ -1,12 +1,13 @@
 [gd_scene format=4 uid="uid://6muhuothynpc"]
 
+[ext_resource type="Script" uid="uid://bh8s08jdxdpjk" path="res://scripts/world.gd" id="1_f1v6p"]
 [ext_resource type="PackedScene" uid="uid://b77y4lbwhjyqe" path="res://scenes/characters/player.tscn" id="2_7k8c1"]
 [ext_resource type="Texture2D" uid="uid://bmkwtcpxf02qj" path="res://assets/sprites/ARENA.png" id="2_w2p53"]
 [ext_resource type="Texture2D" uid="uid://da0jqt6455kvj" path="res://assets/sprites/fondo_world.png" id="4_w2p53"]
 [ext_resource type="Texture2D" uid="uid://bk8fminfimib5" path="res://assets/sprites/Edificio2.png" id="5_7xgas"]
-[ext_resource type="Script" path="res://scripts/ui/puerta_tower.gd" id="5_dp8al"]
+[ext_resource type="Script" uid="uid://fiigs6n30tn0" path="res://scripts/ui/puerta_tower_fuera.gd" id="5_dp8al"]
 [ext_resource type="Texture2D" uid="uid://cqbdxaemxluuv" path="res://assets/sprites/Torre_de_control.png" id="5_gy5pc"]
-[ext_resource type="Script" uid="uid://bwf4g35nicen8" path="res://scripts/ui/puerta_bunker.gd" id="6_0lift"]
+[ext_resource type="Script" uid="uid://bwf4g35nicen8" path="res://scripts/ui/puerta_bunker_fuera.gd" id="6_0lift"]
 [ext_resource type="Texture2D" uid="uid://dhkhs7o1yultq" path="res://assets/sprites/Edificio_1.png" id="6_gy5pc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lfyvx"]
@@ -33,6 +34,7 @@ sources/1 = SubResource("TileSetAtlasSource_7xgas")
 size = Vector2(103.13665, 108.58335)
 
 [node name="World" type="Node2D" unique_id=844796057]
+script = ExtResource("1_f1v6p")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=901896067]
 visible = false
@@ -55,8 +57,9 @@ position = Vector2(182, 303)
 camera = NodePath("camera2d")
 
 [node name="camera2d" type="Camera2D" parent="Player" unique_id=356803377]
-offset = Vector2(0, -40)
-zoom = Vector2(2.6, 2.6)
+position = Vector2(1, 0)
+offset = Vector2(0, -34)
+zoom = Vector2(2.4, 2.4)
 process_callback = 0
 limit_left = -24
 limit_top = -418
@@ -93,13 +96,15 @@ script = ExtResource("5_dp8al")
 position = Vector2(-44.201416, 344.05664)
 shape = SubResource("RectangleShape2D_gy5pc")
 
-[node name="Label" type="Label" parent="TorreDeControl/puerta" unique_id=1734429073]
-offset_left = -105.59233
-offset_top = 243.10791
-offset_right = 24.40767
-offset_bottom = 312.1079
+[node name="Label" type="Label" parent="TorreDeControl/puerta" unique_id=1630274889]
+z_index = 2
+offset_left = -254.9523
+offset_top = 250.47937
+offset_right = 238.0477
+offset_bottom = 319.4794
+scale = Vector2(0.9, 0.9)
 theme_override_font_sizes/font_size = 50
-text = "Enter"
+text = "“Up” button to enter"
 
 [node name="bunker" type="Sprite2D" parent="." unique_id=83084078]
 position = Vector2(1246, 157)
@@ -118,12 +123,13 @@ position = Vector2(-44.201416, 344.05664)
 shape = SubResource("RectangleShape2D_gy5pc")
 
 [node name="Label" type="Label" parent="bunker/puerta" unique_id=1634319204]
-offset_left = -105.59233
-offset_top = 243.10791
-offset_right = 24.40767
-offset_bottom = 312.1079
+offset_left = -257.84174
+offset_top = 243.10794
+offset_right = 235.15826
+offset_bottom = 312.10797
+scale = Vector2(0.9, 0.9)
 theme_override_font_sizes/font_size = 50
-text = "Enter"
+text = "“Up” button to enter"
 
 [node name="Node" type="Node" parent="." unique_id=1255257404]
 
@@ -197,3 +203,9 @@ position = Vector2(849, 234)
 scale = Vector2(2.347657, 2.347657)
 texture = ExtResource("6_gy5pc")
 flip_h = true
+
+[node name="spawn_tower" type="Marker2D" parent="." unique_id=641468549]
+position = Vector2(2136, 295)
+
+[node name="spawn_bunker" type="Marker2D" parent="." unique_id=1018724251]
+position = Vector2(1228, 297)

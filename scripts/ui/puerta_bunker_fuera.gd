@@ -1,7 +1,6 @@
 extends Area2D
 
 @export_file("*.tscn") var escena_destino: String = "res://scenes/levels/bunker.tscn"
-
 @onready var texto_entrar: Label = $Label
 
 var jugador_en_rango: bool = false

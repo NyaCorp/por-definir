@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Global="*uid://cahbwqtd6p2l6"
+Fade="*uid://dvtd4kq7k2gnr"
 
 [global_group]
 

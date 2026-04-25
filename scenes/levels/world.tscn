@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bk8fminfimib5" path="res://assets/sprites/Edificio2.png" id="5_7xgas"]
 [ext_resource type="Script" path="res://scripts/ui/puerta_tower.gd" id="5_dp8al"]
 [ext_resource type="Texture2D" uid="uid://cqbdxaemxluuv" path="res://assets/sprites/Torre_de_control.png" id="5_gy5pc"]
-[ext_resource type="Script" path="res://scripts/ui/puerta_bunker.gd" id="6_0lift"]
+[ext_resource type="Script" uid="uid://bwf4g35nicen8" path="res://scripts/ui/puerta_bunker.gd" id="6_0lift"]
 [ext_resource type="Texture2D" uid="uid://dhkhs7o1yultq" path="res://assets/sprites/Edificio_1.png" id="6_gy5pc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lfyvx"]

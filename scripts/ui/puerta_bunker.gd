@@ -38,7 +38,9 @@ func _on_body_exited(body: Node2D) -> void:
 
 func _cambiar_escena() -> void:
 	if escena_destino != "":
+		await Fade.fade(1.0).finished
 		get_tree().change_scene_to_file(escena_destino)
+		await Fade.fade(0.0).finished
 	else:
 		push_warning("Error: No hay destino para la puerta")
 

@@ -1,6 +1,5 @@
 [gd_scene format=4 uid="uid://cr88bnl1a48x6"]
 
-[ext_resource type="Texture2D" uid="uid://b6u0n5keoof2f" path="res://assets/sprites/square.png" id="1_nkh1m"]
 [ext_resource type="PackedScene" uid="uid://b77y4lbwhjyqe" path="res://scenes/characters/player.tscn" id="2_shgnu"]
 [ext_resource type="PackedScene" uid="uid://bwedgoujfb38f" path="res://scenes/characters/test_enemy.tscn" id="3_nkh1m"]
 [ext_resource type="Texture2D" uid="uid://fxjd484kbpex" path="res://assets/sprites/bunker-paredes.png" id="3_peage"]
@@ -30,7 +29,6 @@ physics_layer_0/collision_mask = 3
 sources/1 = SubResource("TileSetAtlasSource_x4dmy")
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lfyvx"]
-load_path = "res://.godot/imported/square.png-0884e5a4bbd423d2d9ee2545b010aedc.ctex"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0hol4"]
 texture = SubResource("CompressedTexture2D_lfyvx")
@@ -123,7 +121,7 @@ metadata/_edit_group_ = true
 
 [node name="camera2d" type="Camera2D" parent="Player" unique_id=1543446528]
 offset = Vector2(0, -40)
-zoom = Vector2(3.5, 3.5)
+zoom = Vector2(4, 4)
 process_callback = 0
 limit_enabled = false
 limit_left = -400
@@ -145,7 +143,6 @@ texture_scale = 17.25
 position = Vector2(-533, 2911)
 
 [node name="canvas_module" type="CanvasModulate" parent="." unique_id=465818379]
-visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="Enemy" type="Node" parent="." unique_id=240010724]

@@ -35,6 +35,7 @@ size = Vector2(103.13665, 108.58335)
 [node name="World" type="Node2D" unique_id=844796057]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=901896067]
+visible = false
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=893094120]
 motion_scale = Vector2(1.04, 1)
@@ -67,7 +68,6 @@ position_smoothing_speed = 10.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1098211122]
 layer = -1
-visible = false
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=999839163]
 offset_left = 1.0

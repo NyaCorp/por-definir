@@ -106,11 +106,11 @@ func collide_with_enemy(enemy: CharacterBody2D):
 	enemy.set_collision_layer_value(3, false)
 	
 	
+	
+	Global.player_lives -= 1
 	if Global.player_lives <= 0:
 		Global.trigger_game_over()
 		return
-	
-	Global.player_lives -= 1
 	animation2.play("enemy_col")
 	
 	var timer = get_tree().create_timer(2)

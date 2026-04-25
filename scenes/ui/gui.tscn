@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ckhbos7swgpya"]
 
 [ext_resource type="Script" uid="uid://cgrc8tprbsp0p" path="res://scripts/ui/gui.gd" id="1_fjuye"]
+[ext_resource type="Texture2D" uid="uid://bkyshs87tv8oc" path="res://assets/sprites/VIDA_DE_FUFU.png" id="2_khrik"]
 
 [sub_resource type="Animation" id="Animation_khrik"]
 length = 0.001
@@ -110,6 +111,18 @@ _data = {
 &"RESET": SubResource("Animation_khrik"),
 &"game_over": SubResource("Animation_fjuye")
 }
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_khrik"]
+atlas = ExtResource("2_khrik")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qu8lo"]
+atlas = ExtResource("2_khrik")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2dwb"]
+atlas = ExtResource("2_khrik")
+region = Rect2(32, 0, 16, 16)
 
 [node name="GUI" type="CanvasLayer" unique_id=249055991]
 script = ExtResource("1_fjuye")
@@ -221,5 +234,40 @@ text = "RESTART"
 [node name="animation" type="AnimationPlayer" parent="GameOver" unique_id=2048411451]
 libraries/ = SubResource("AnimationLibrary_khrik")
 
+[node name="PlayerInfo" type="CanvasLayer" parent="." unique_id=1109998789]
+
+[node name="3" type="TextureRect" parent="PlayerInfo" unique_id=1673881594]
+anchors_preset = -1
+anchor_left = 0.036000002
+anchor_right = 0.036000002
+offset_left = 0.52799606
+offset_top = 25.0
+offset_right = 65.528
+offset_bottom = 90.0
+texture = SubResource("AtlasTexture_khrik")
+
+[node name="2" type="TextureRect" parent="PlayerInfo" unique_id=1516115801]
+visible = false
+anchors_preset = -1
+anchor_left = 0.036000002
+anchor_right = 0.036000002
+offset_left = 0.52799606
+offset_top = 25.0
+offset_right = 65.528
+offset_bottom = 90.0
+texture = SubResource("AtlasTexture_qu8lo")
+
+[node name="1" type="TextureRect" parent="PlayerInfo" unique_id=1759097255]
+visible = false
+anchors_preset = -1
+anchor_left = 0.036000002
+anchor_right = 0.036000002
+offset_left = 0.52799606
+offset_top = 25.0
+offset_right = 65.528
+offset_bottom = 90.0
+texture = SubResource("AtlasTexture_g2dwb")
+
 [connection signal="timeout" from="ProgressLayer/PorgressTimer" to="." method="_on_porgress_timer_timeout"]
 [connection signal="timeout" from="ProgressLayer/DecreaseProgreessTimer" to="." method="_on_decrease_progreess_timer_timeout"]
+[connection signal="pressed" from="GameOver/PlayBtn" to="." method="_on_play_btn_pressed"]

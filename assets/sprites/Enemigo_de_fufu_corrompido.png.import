@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chpi4xadgxc4o"
-path="res://.godot/imported/prueba.png-a9f3cb33167335cc60e6bb88605fcd67.ctex"
+uid="uid://mbeukbgdqk77"
+path="res://.godot/imported/Enemigo_de_fufu_corrompido.png-588cbd8adf3bf3ffcad7180ee20627c1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/prueba.png"
-dest_files=["res://.godot/imported/prueba.png-a9f3cb33167335cc60e6bb88605fcd67.ctex"]
+source_file="res://assets/sprites/Enemigo_de_fufu_corrompido.png"
+dest_files=["res://.godot/imported/Enemigo_de_fufu_corrompido.png-588cbd8adf3bf3ffcad7180ee20627c1.ctex"]
 
 [params]
 

@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b6u0n5keoof2f" path="res://assets/sprites/square.png" id="1_pjjv8"]
 [ext_resource type="PackedScene" uid="uid://b77y4lbwhjyqe" path="res://scenes/characters/player.tscn" id="2_lgev2"]
+[ext_resource type="Texture2D" uid="uid://chye47hcvg8lu" path="res://assets/sprites/checkorange.png" id="3_a7871"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lgev2"]
 texture = ExtResource("1_pjjv8")
@@ -40,3 +41,7 @@ limit_bottom = 401
 limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
+
+[node name="Checkorange" type="Sprite2D" parent="." unique_id=1132569586]
+position = Vector2(-800, 279)
+texture = ExtResource("3_a7871")

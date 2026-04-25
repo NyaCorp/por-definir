@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Enemy
 
 var lives = 3
-var speed = 100.0
+var speed = 80.0
 var direccion = 1
 
 @onready var ray_cast = $RayCast2D 

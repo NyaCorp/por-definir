@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bwedgoujfb38f"]
 
 [ext_resource type="Script" uid="uid://dsgpyr27o6age" path="res://scripts/characters/test_enemy.gd" id="1_6x6pk"]
-[ext_resource type="Texture2D" uid="uid://dof2umb3wc36j" path="res://assets/sprites/slime_green.png" id="1_uvd4k"]
+[ext_resource type="Texture2D" uid="uid://mbeukbgdqk77" path="res://assets/sprites/Enemigo_de_fufu_corrompido.png" id="2_6x6pk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uvd4k"]
 size = Vector2(10, 11)
@@ -12,11 +12,10 @@ collision_mask = 3
 script = ExtResource("1_6x6pk")
 
 [node name="spr" type="Sprite2D" parent="." unique_id=1936825289]
-scale = Vector2(1.4, 1.4)
-texture = ExtResource("1_uvd4k")
-hframes = 4
-vframes = 3
-frame = 7
+position = Vector2(1.0000001, 9)
+scale = Vector2(0.534375, 0.534375)
+texture = ExtResource("2_6x6pk")
+hframes = 2
 
 [node name="col" type="CollisionShape2D" parent="." unique_id=486988937]
 position = Vector2(0, 9)

@@ -115,7 +115,7 @@ tile_map_data = PackedByteArray("AAD//xMAAgADAAMAAAD//xQAAgAAAAEAAAD//xUAAgAAAAE
 tile_set = SubResource("TileSet_q6r6c")
 
 [node name="Player" parent="." unique_id=2036891840 node_paths=PackedStringArray("camera") instance=ExtResource("2_shgnu")]
-position = Vector2(635, 162)
+position = Vector2(645, 163)
 camera = NodePath("camera2d")
 metadata/_edit_group_ = true
 
@@ -133,6 +133,7 @@ position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
 [node name="PointLight2D" type="PointLight2D" parent="Player" unique_id=1438131539]
+color = Color(1, 1, 1, 0.78431374)
 energy = 10.07
 texture = ExtResource("7_x4dmy")
 texture_scale = 17.25

@@ -188,6 +188,7 @@ tile_set = SubResource("TileSet_q6r6c")
 [node name="camera_zone2" parent="." unique_id=252991681 instance=ExtResource("8_7xd7r")]
 z_index = 4
 position = Vector2(780, 160)
+zoom_target = Vector2(2.5, 2.5)
 
 [node name="camera_zone" parent="." unique_id=91568177 instance=ExtResource("8_7xd7r")]
 z_index = 4
@@ -202,7 +203,7 @@ position = Vector2(1085, 1062)
 zoom_target = Vector2(3, 3)
 
 [node name="Player" parent="." unique_id=2036891840 instance=ExtResource("2_shgnu")]
-position = Vector2(639, 164)
+position = Vector2(-3200, 1300)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1543446528]
 offset = Vector2(0, -40)

@@ -23,6 +23,10 @@ config/icon="uid://bixkc744so728"
 Global="*uid://cahbwqtd6p2l6"
 Fade="*uid://dvtd4kq7k2gnr"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [global_group]
 
 enemy=""

@@ -9,8 +9,9 @@ class_name Player
 @onready var animation: AnimationPlayer = $animation
 @onready var area_col: Area2D = $area_col
 @onready var sprite: Sprite2D = $spr
-@export var camera: Camera2D 
-
+# @export var camera: Camera2D 
+@onready var camera: Camera2D = $Camera2D
+var zoom_tween: Tween
 const JUMP_VELOCITY = -280.0
 const SPEED = 200.0
 
@@ -158,3 +159,14 @@ func _on_area_col_body_entered(body: Node2D) -> void:
 func _on_area_col_area_entered(area: Area2D) -> void:
 	if area.is_in_group("checkpoint"):
 		currentCheckpoint = area
+
+func update_camera_zoom(target_zoom: Vector2, duration: float) -> void:
+	if not camera:
+		push_warning("There is no camera in the player")
+		return
+	if zoom_tween and zoom_tween.is_running():
+		zoom_tween.kill()   
+	zoom_tween = create_tween()
+	zoom_tween.set_trans(Tween.TRANS_SINE)
+	zoom_tween.set_ease(Tween.EASE_IN_OUT)
+	zoom_tween.tween_property(camera, "zoom", target_zoom, duration)

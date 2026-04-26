@@ -1,7 +1,7 @@
 extends Area2D
 class_name CameraZone
 
-@export var zoom_target: Vector2 = Vector2(1.0, 1.0)
+@export var zoom_target: Vector2 = Vector2(1.5, 1.5)
 @export var transition_duration: float = 1.0
 
 func _ready() -> void:

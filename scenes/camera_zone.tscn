@@ -3,13 +3,13 @@
 [ext_resource type="Script" uid="uid://dqb5w3ru2bryj" path="res://scripts/camera_zone.gd" id="1_00kvm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_00kvm"]
-size = Vector2(10, 18)
+size = Vector2(20, 77)
 
 [node name="camera_zone" type="Area2D" unique_id=252991681]
+collision_layer = 7
+collision_mask = 7
 script = ExtResource("1_00kvm")
 
-[node name="collision" type="CollisionShape2D" parent="." unique_id=1545135926]
-position = Vector2(-0.99999994, 0)
-scale = Vector2(1.2, 1.2)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=400555583]
+position = Vector2(0, -28.5)
 shape = SubResource("RectangleShape2D_00kvm")
-debug_color = Color(3.080368e-06, 0.58458734, 0.7819988, 0.41960785)

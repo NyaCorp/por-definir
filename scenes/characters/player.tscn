@@ -429,8 +429,8 @@ libraries/ = SubResource("AnimationLibrary_76oj4")
 libraries/ = SubResource("AnimationLibrary_6eyoc")
 
 [node name="area_col" type="Area2D" parent="." unique_id=1716329098]
-collision_layer = 2
-collision_mask = 5
+collision_layer = 7
+collision_mask = 7
 
 [node name="col" type="CollisionShape2D" parent="area_col" unique_id=1100710322]
 position = Vector2(-1, 0)

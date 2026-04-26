@@ -5,9 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://bmkwtcpxf02qj" path="res://assets/terrain/arena.png" id="2_w2p53"]
 [ext_resource type="Texture2D" uid="uid://da0jqt6455kvj" path="res://assets/background/fondo_world.png" id="4_w2p53"]
 [ext_resource type="Texture2D" uid="uid://bk8fminfimib5" path="res://assets/terrain/Edificio2.png" id="5_7xgas"]
-[ext_resource type="Script" uid="uid://fiigs6n30tn0" path="res://scripts/ui/puerta_tower_fuera.gd" id="5_dp8al"]
+[ext_resource type="Script" uid="uid://fiigs6n30tn0" path="res://scripts/ui/door_tower_out.gd" id="5_dp8al"]
 [ext_resource type="Texture2D" uid="uid://cqbdxaemxluuv" path="res://assets/terrain/Torre_de_comunicaciones.png" id="5_gy5pc"]
-[ext_resource type="Script" uid="uid://bwf4g35nicen8" path="res://scripts/ui/puerta_bunker_fuera.gd" id="6_0lift"]
+[ext_resource type="Script" uid="uid://bwf4g35nicen8" path="res://scripts/ui/door_bunker_out.gd" id="6_0lift"]
 [ext_resource type="Texture2D" uid="uid://dhkhs7o1yultq" path="res://assets/terrain/Edificio_1.png" id="6_gy5pc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lfyvx"]
@@ -116,7 +116,6 @@ scale = Vector2(0.1, 0.1)
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("6_0lift")
-escena_destino = "uid://cr88bnl1a48x6"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bunker/puerta" unique_id=2113761526]
 position = Vector2(-44.201416, 344.05664)

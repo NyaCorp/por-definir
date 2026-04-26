@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://ckf3vbmfikj2p" path="res://assets/terrain/escaner.png" id="4_uadqp"]
 [ext_resource type="Texture2D" uid="uid://culw4lpsu8pb6" path="res://assets/background/fondo_tower.png" id="4_wllo2"]
 [ext_resource type="Texture2D" uid="uid://ngyk2r4pga81" path="res://assets/terrain/puerta.png" id="5_8ca3c"]
-[ext_resource type="Script" uid="uid://cncwpd60cvjwa" path="res://scripts/ui/puerta_tower_dentro.gd" id="6_uadqp"]
+[ext_resource type="Script" uid="uid://cncwpd60cvjwa" path="res://scripts/ui/door_tower_in.gd" id="6_uadqp"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lfyvx"]
 load_path = "res://.godot/imported/square.png-0884e5a4bbd423d2d9ee2545b010aedc.ctex"

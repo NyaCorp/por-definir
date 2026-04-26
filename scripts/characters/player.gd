@@ -9,7 +9,7 @@ class_name Player
 @onready var animation: AnimationPlayer = $animation
 @onready var area_col: Area2D = $area_col
 @onready var sprite: Sprite2D = $spr
-@export var camera: Camera2D
+@export var camera: Camera2D 
 
 const JUMP_VELOCITY = -280.0
 const SPEED = 200.0

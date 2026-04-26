@@ -28,8 +28,9 @@ func _ready() -> void:
 	Global.game_over.connect(_on_game_over)
 	Global.new_game.connect(_on_new_game)
 	Global.can_double_jump.connect(_on_can_double_jump)
-	add_to_group("player")
-	# camera.zoom = Vector2(1.5, 1.5)
+	canDoubleJump = Global.canDoubleJump
+	
+	camera.zoom = Vector2(1.5, 1.5)
 
 func _physics_process(delta: float) -> void:
 	player_movement(delta)
@@ -143,6 +144,7 @@ func _on_new_game():
 	canDoubleJump = false
 
 func _on_can_double_jump():
+	Global.canDoubleJump = true
 	canDoubleJump = true
 
 func _on_area_col_body_entered(body: Node2D) -> void:

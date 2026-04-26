@@ -164,7 +164,7 @@ clip_text = true
 metadata/_edit_use_anchors_ = true
 
 [node name="PorgressTimer" type="Timer" parent="ProgressLayer" unique_id=166432097]
-wait_time = 0.1
+wait_time = 0.05
 
 [node name="DecreaseProgreessTimer" type="Timer" parent="ProgressLayer" unique_id=2001777792]
 

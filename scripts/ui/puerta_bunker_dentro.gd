@@ -36,12 +36,12 @@ func _on_body_exited(body: Node2D) -> void:
 		fade_tween.tween_property(text, "modulate:a", 0.0, 0.2)
 		fade_tween.tween_callback(text.hide)
 
-func _cambiar_escena() -> void:
-	if escena_destino != "":
+func _change_scene() -> void:
+	if scene != "":
 		await Fade.start_fade()
-		if tag_destino != "":
-			Global.spawn_destino = tag_destino
-		get_tree().change_scene_to_file(escena_destino)
+		if tag != "":
+			Global.spawn_destino = tag
+		get_tree().change_scene_to_file(scene)
 		await Fade.end_fade()
 	else:
 		push_warning("Error: There is no handle on the door")

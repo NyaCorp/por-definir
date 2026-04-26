@@ -181,7 +181,6 @@ tile_set = SubResource("TileSet_q6r6c")
 [node name="Player" parent="." unique_id=2036891840 node_paths=PackedStringArray("camera") instance=ExtResource("2_shgnu")]
 position = Vector2(639, 164)
 camera = NodePath("camera2d")
-metadata/_edit_group_ = true
 
 [node name="camera2d" type="Camera2D" parent="Player" unique_id=1543446528]
 offset = Vector2(0, -40)

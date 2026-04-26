@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://btpmhk6y267ja"]
+
+[ext_resource type="Texture2D" uid="uid://rv281h5xma82" path="res://assets/sprites/doble_jump.png" id="1_0ia10"]
+[ext_resource type="Script" uid="uid://bv3panr440562" path="res://scripts/double_jump_active.gd" id="1_rrnu1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ia10"]
+size = Vector2(16, 12)
+
+[node name="DoubleJumpActive" type="Area2D" unique_id=1337609819]
+collision_mask = 3
+script = ExtResource("1_rrnu1")
+
+[node name="spr" type="Sprite2D" parent="." unique_id=1367048843]
+scale = Vector2(1.625, 1.625)
+texture = ExtResource("1_0ia10")
+
+[node name="col" type="CollisionShape2D" parent="." unique_id=1583269363]
+shape = SubResource("RectangleShape2D_0ia10")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

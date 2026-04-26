@@ -15,13 +15,19 @@ const JUMP_VELOCITY = -280.0
 const SPEED = 200.0
 
 var bullet_scene = preload("res://scenes/bullet.tscn")
+var currentCheckpoint: Area2D
+
 var isShooting = false
 var isDoubleJump = true
+
+var canDoubleJump = false
 var canShoot = true
-var currentCheckpoint: Area2D
 
 func _ready() -> void:
 	Global.game_over.connect(_on_game_over)
+	Global.new_game.connect(_on_new_game)
+	Global.can_double_jump.connect(_on_can_double_jump)
+	
 	camera.zoom = Vector2(1.5, 1.5)
 
 func _physics_process(delta: float) -> void:
@@ -38,7 +44,7 @@ func player_movement(delta: float):
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		isDoubleJump = true
-	elif Input.is_action_just_pressed("jump") and !is_on_floor() and isDoubleJump:
+	elif Input.is_action_just_pressed("jump") and !is_on_floor() and isDoubleJump and canDoubleJump:
 		velocity.y = JUMP_VELOCITY - 11
 		isDoubleJump = false
 	
@@ -131,6 +137,12 @@ func _on_game_over():
 	animation.play("die")
 	
 	set_physics_process(false)
+
+func _on_new_game():
+	canDoubleJump = false
+
+func _on_can_double_jump():
+	canDoubleJump = true
 
 func _on_area_col_body_entered(body: Node2D) -> void:
 	if body.is_in_group("cables"):

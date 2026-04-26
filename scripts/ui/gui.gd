@@ -7,16 +7,22 @@ extends CanvasLayer
 @onready var progress_layer: CanvasLayer = $ProgressLayer
 @onready var press_e_layer: CanvasLayer = $PressE_Layer
 
+@onready var final_stage_layer: CanvasLayer = $FinalStage
+
 @onready var game_over_animation: AnimationPlayer = $GameOver/animation
 @onready var game_over_layer: CanvasLayer = $GameOver
 
+var timer_count = 120
 var progress_count = 0
 
 func _ready() -> void:
 	press_e_layer.visible = false
 	progress_layer.visible = false
 	game_over_layer.visible = false
+	final_stage_layer.visible = false
 	
+	Global.new_game.connect(_on_new_game)
+	Global.start_final_stage.connect(_on_start_final_stage)
 	Global.game_over.connect(_on_game_over)
 	
 	Global.show_press_e_layer.connect(func(): press_e_layer.visible = true)
@@ -74,6 +80,22 @@ func _on_play_btn_pressed() -> void:
 	get_tree().reload_current_scene()
 	
 	await Fade.end_fade()
+
+func _on_start_final_stage():
+	final_stage_layer.visible = true
+	$FinalStage/TimerCount.start()
+
+func _on_timer_count_timeout() -> void:
+	timer_count -= 1
+	$FinalStage/Title2.text = str(timer_count) + "s"
+	
+	if timer_count <= 0:
+		Global.trigger_game_over()
+		$FinalStage/TimerCount.stop()
+
+func _on_new_game():
+	timer_count = 120
+	progress_count = 0
 
 func _on_game_over():
 	Global.trigger_hidden_press_e_layer()

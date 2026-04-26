@@ -138,9 +138,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -51.5
-offset_top = -50.5
+offset_top = -123.5
 offset_right = 51.5
-offset_bottom = -27.5
+offset_bottom = -100.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "Saving data..."
@@ -153,9 +153,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -51.0
-offset_top = -16.0
+offset_top = -89.0
 offset_right = 52.0
-offset_bottom = 7.0
+offset_bottom = -66.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "0%"
@@ -172,15 +172,15 @@ wait_time = 0.1
 visible = false
 
 [node name="E" type="Label" parent="PressE_Layer" unique_id=1907390159]
-anchors_preset = 8
+anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 0.34500003
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -51.5
-offset_top = -50.5
-offset_right = 51.5
-offset_bottom = -27.5
+anchor_bottom = 0.34500003
+offset_left = -52.0
+offset_top = -34.560013
+offset_right = 51.0
+offset_bottom = 34.439987
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 50
@@ -269,9 +269,42 @@ offset_right = 65.528
 offset_bottom = 90.0
 texture = SubResource("AtlasTexture_g2dwb")
 
+[node name="FinalStage" type="CanvasLayer" parent="." unique_id=583942209]
+visible = false
+
+[node name="Title" type="Label" parent="FinalStage" unique_id=158706062]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -138.0
+offset_top = 44.0
+offset_right = 138.0
+offset_bottom = 99.0
+grow_horizontal = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 40
+text = "COME ON UP!!"
+
+[node name="Title2" type="Label" parent="FinalStage" unique_id=2021554350]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -135.0
+offset_top = 98.0
+offset_right = 141.0
+offset_bottom = 153.0
+grow_horizontal = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "120s"
+horizontal_alignment = 1
+
+[node name="TimerCount" type="Timer" parent="FinalStage" unique_id=1472066000]
+
 [node name="SavedDataCompleted" type="AudioStreamPlayer" parent="." unique_id=1080857277]
 stream = ExtResource("3_qu8lo")
 
 [connection signal="timeout" from="ProgressLayer/PorgressTimer" to="." method="_on_porgress_timer_timeout"]
 [connection signal="timeout" from="ProgressLayer/DecreaseProgreessTimer" to="." method="_on_decrease_progreess_timer_timeout"]
 [connection signal="pressed" from="GameOver/PlayBtn" to="." method="_on_play_btn_pressed"]
+[connection signal="timeout" from="FinalStage/TimerCount" to="." method="_on_timer_count_timeout"]

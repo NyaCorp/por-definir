@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://cr88bnl1a48x6"]
 
+[ext_resource type="Script" uid="uid://c5axgt45i1rek" path="res://scripts/bunker.gd" id="1_xmksd"]
 [ext_resource type="PackedScene" uid="uid://b77y4lbwhjyqe" path="res://scenes/characters/player.tscn" id="2_shgnu"]
 [ext_resource type="PackedScene" uid="uid://bwedgoujfb38f" path="res://scenes/characters/test_enemy.tscn" id="3_nkh1m"]
 [ext_resource type="Texture2D" uid="uid://fxjd484kbpex" path="res://assets/terrain/bunker-paredes.png" id="3_peage"]
@@ -12,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://06trl4d5jyh5" path="res://scenes/checkpoint.tscn" id="10_x4dmy"]
 [ext_resource type="Script" uid="uid://c3cbsmemv75wu" path="res://scripts/ui/door_bunker_in.gd" id="11_tskur"]
 [ext_resource type="Texture2D" uid="uid://ngyk2r4pga81" path="res://assets/terrain/puerta.png" id="12_axwao"]
+[ext_resource type="PackedScene" uid="uid://btpmhk6y267ja" path="res://scenes/double_jump_active.tscn" id="13_axwao"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x4dmy"]
 texture = ExtResource("5_v5v2x")
@@ -161,7 +163,11 @@ sources/4 = SubResource("TileSetAtlasSource_tskur")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xmksd"]
 size = Vector2(150.50012, 213.50005)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_axwao"]
+size = Vector2(20, 178)
+
 [node name="bunker" type="Node2D" unique_id=1195308242]
+script = ExtResource("1_xmksd")
 
 [node name="Blockers" parent="." unique_id=855512155 instance=ExtResource("9_v5v2x")]
 position = Vector2(-1153, 2851)
@@ -209,7 +215,7 @@ color = Color(0, 0, 0, 1)
 [node name="Enemy" type="Node" parent="." unique_id=240010724]
 
 [node name="TestEnemy" parent="Enemy" unique_id=284073310 instance=ExtResource("3_nkh1m")]
-position = Vector2(641, 574)
+position = Vector2(-1204, 2859)
 
 [node name="TestEnemy2" parent="Enemy" unique_id=1775418141 instance=ExtResource("3_nkh1m")]
 position = Vector2(320, 1056)
@@ -394,3 +400,23 @@ polygon = PackedVector2Array(-0.57579, 2.499999, -7.7000003, 2.499999, -4.971579
 position = Vector2(-491.1, 2900)
 scale = Vector2(10.499999, 1)
 polygon = PackedVector2Array(-7.323807, -17, -8.466667, -35, -3.7047615, -35, 0.48571777, -35, -0.5619049, -17)
+
+[node name="DoubleJumpActive" parent="." unique_id=1337609819 instance=ExtResource("13_axwao")]
+position = Vector2(-3137, 1345)
+
+[node name="Label" type="Label" parent="." unique_id=1603773310]
+offset_left = -3059.0
+offset_top = 1300.0
+offset_right = -2944.0
+offset_bottom = 1323.0
+text = "DOUBLE JUMP!"
+
+[node name="StartFinalStage" type="Area2D" parent="." unique_id=1232758515]
+position = Vector2(862, 2996)
+collision_mask = 3
+metadata/_edit_group_ = true
+
+[node name="col" type="CollisionShape2D" parent="StartFinalStage" unique_id=922305101]
+shape = SubResource("RectangleShape2D_axwao")
+
+[connection signal="body_entered" from="StartFinalStage" to="." method="_on_start_final_stage_body_entered"]
